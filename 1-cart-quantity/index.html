@@ -47,9 +47,30 @@
 
   <button onclick="
   cartValue += 6;
-  console.log(`Cart quantity: ${cartValue}`)
+  console.log(`Cart quantity: ${cartValue}`);
   ">
     +6
+  </button>
+
+  <button onclick="
+  cartValue--;
+  console.log(`Cart quantity: ${cartValue}`)
+  ">
+    Remove from cart
+  </button>
+
+  <button onclick="
+  cartValue -= 2;
+  console.log(`Cart quantity: ${cartValue}`);
+  ">
+    -2
+  </button>
+
+  <button onclick="
+  cartValue -= 3;
+  console.log(`Cart quantity: ${cartValue}`);
+  ">
+    -3
   </button>
 
   <button onclick="
@@ -58,6 +79,8 @@
   ">
     Reset Cart
   </button> 
+
+ 
 
   <script>
     let cartValue = 0;
