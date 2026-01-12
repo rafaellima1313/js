@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>
+    Cart Quantity
+  </h1>
+
+  <button onclick="
+  console.log(`Cart quantity: ${cartValue}`);
+  ">
+    Show Quantity
+  </button>
+
+  <button onclick="
+  cartValue++;
+  console.log(`Cart quantity: ${cartValue}`);
+  ">
+    Add to Cart
+  </button>
+
+  <button onclick="
+  cartValue += 2;
+  console.log(`Cart quantity: ${cartValue}`);
+  ">
+    +2
+  </button>
+
+  <button onclick="
+  cartValue += 3;
+  console.log(`Cart quantity: ${cartValue}`)
+  ">
+    +3
+  </button>
+
+  <button onclick="
+  cartValue +=5;
+  console.log(`Cart Quantity: ${cartValue}`)
+  ">
+    +5
+  </button>
+
+  <button onclick="
+  cartValue += 6;
+  console.log(`Cart quantity: ${cartValue}`)
+  ">
+    +6
+  </button>
+
+  <button onclick="
+  cartValue = 0;
+  console.log(`Cart is now empty! \nCart quantity: ${cartValue}`);
+  ">
+    Reset Cart
+  </button> 
+
+  <script>
+    let cartValue = 0;
+  </script>
+
+
+  <!-- 2h32m
+  -->
+</body>
+</html>
