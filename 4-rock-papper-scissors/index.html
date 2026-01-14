@@ -4,71 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body {
+      background-color: lightslategray;
+    }
+  </style>
 </head>
 <body>
   <h1>
     Rock Paper Scissors
   </h1>
 
-  <button onclick="
-  const computerMove = pickComputerMove();
-
-  if (computerMove === 'Rock') {
-    result = 'Tie';
-    } else if  (computerMove === 'Paper') {
-    result = 'You Lose';
-    } else {
-    result = 'You Win'
-    }
-    
-  alert(`You choose Rock, computer choose ${computerMove}.\nthe result is ${result}`);
-  ">
+  <button onclick="playGame('Rock');">
     Rock
   </button>
 
 
 
-  <button onclick="
-  playGame('Paper');
-  ">
+  <button onclick="playGame('Paper');">
     Paper
   </button>
 
 
-  <button onclick="
-  const computerMove = pickComputerMove();
-
-  if (computerMove === 'Scissors') {
-    result = 'Drawn';
-    } else if (computerMove === 'Rock') { 
-     result = 'You Lose';
-    } else {
-      result = 'You win';
-    }
-
-    alert(`You choose Scissors, computer choose ${computerMove}.\n${result}`);
-  ">
+  <button onclick="playGame('Scissors');">
     Scissors
   </button>
 
   <script>
-    let result = '';
+    
 
     function playGame(playerMove) {
+      let result = '';
+      const computerMove = pickComputerMove();
+
       if (computerMove === playerMove) {
        result = 'Drawn';
-      } else if (computerMove === playerMove) { 
-      result = 'You Lose';
+      } else if ((computerMove === 'Rock' && playerMove === 'Scissors') || (computerMove === 'Paper' && playerMove === 'Rock') || (computerMove === 'Scissors' && playerMove === 'Paper')) {
+        result = 'You Lost';
       } else {
-      result = 'You win';
-    }
+        result = 'You Win';
+      }
 
-    alert(`You choose ${playerMove}, computer choose ${computerMove}.\n${result}`);
+      alert(`You choose ${playerMove}, computer choose ${computerMove}.\n${result}`);
 
-    }
+      }
 
     function pickComputerMove() {
       let randomNumber = Math.random();
+      let computerMove = '';
 
       
       if (randomNumber < 1/3) {

@@ -4,21 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body {
+      background-color: lightslategray;
+    }
+  </style>
 </head>
 <body>
-  <button onclick="
-  newFunction();
-  console.log(newFunction());
-  ">
+  <button onclick="(convertTemperature(25, 'cd'))">
     click here
   </button>
 
   <script>
-    function newFunction() {
-      alert('Keep the good work!');
+    function convertTemperature(degrees,unit) {
+      let result;
+      unit.unit.toLowerCase();
 
-      return 5;
+      if (unit === 'f') {
+        result = (degrees - 32) * 5 / 9;
+        alert(`${degrees} Farenheit = ${result} Celsius`);
+      } else if (unit === 'c'){
+        result = (degrees * 9 / 5 ) + 32;
+        alert(`${degrees} Celsius = ${result} Fahrenheit`);
+      } else {
+        alert('Entrada Invalida');
+      }
     }
+
+    <!--4h 15 30-->
   </script>
 </body>
 </html>
