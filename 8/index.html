@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>Elry'ns Profile</h1>
+
+  <div>
+    <h2>Recuperar energia</h2>
+
+    <button onclick="controleEnergia(5)">
+      +5
+    </button>
+
+    <button onclick="controleEnergia(15)">
+      +15
+    </button>
+  </div>
+
+  <div>
+    <h2>Gastar energia</h2>
+
+    <button onclick="controleEnergia(-10)">
+      -10
+    </button>
+    
+    <button onclick="controleEnergia(-25)">
+      -25
+    </button>
+  </div>
+
+  <div>
+    <h2>Configurações</h2>
+  
+    <button onclick="alert(`SUA ENERGIA ATUAL É ${energia}`);">
+      Mostrar energia
+    </button>
+
+    <button onclick="resetEnergia()">
+      Resetar energia para 80
+    </button>
+  </div>
+
+  <script>
+    let energia = 80;
+
+
+    function controleEnergia(addEnergia) {
+      let totalEnergia = energia + addEnergia;
+
+      if (totalEnergia > 100) {
+        energia = 100;
+        alert(`Sua energia esta no maximo\nEnergia Total: ${energia}`);
+        return;
+      } 
+
+      if (totalEnergia < 0) {
+        energia = 0;
+        alert(`Você esta sem energia\nEnergia Total: ${energia}`);
+        return
+      }
+
+      energia = totalEnergia;
+
+      alert(`Sua energia atual é ${energia}`);
+    }
+
+    function resetEnergia() {
+      energia = 80;
+      alert('SUA ENERGIA FOI RESETADA!');
+    }
+  </script>
+</body>
+</html>

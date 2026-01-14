@@ -7,107 +7,68 @@
 </head>
 <body>
   <p>
-    <button onclick="
-    calculation += '1';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('1')">
       1
     </button>
-    <button onclick="
-    calculation += '2';
-    console.log(calculation);
-    ">
+
+    <button onclick="addCalc('2')">
       2
     </button>
-    <button onclick="
-    calculation += '3';
-    console.log(calculation);
-    ">
+
+    <button onclick="addCalc('3')">
       3
     </button>
-    <button onclick="
-    calculation += ' + '
-    console.log(calculation);
-    ">
+
+    <button onclick="addCalc(' + ')">
       +
     </button>
   </p>
 
 
   <p>
-    <button onclick="
-    calculation += '4';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('4')">
       4
     </button>
 
-    <button onclick="
-    calculation += '5';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('5')">
       5
     </button>
 
-    <button onclick="
-    calculation += '6';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('6')">
       6
     </button>
 
-    <button onclick="
-    calculation += ' - ';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc(' - ')">
       -
     </button>
   </p>
 
 
   <p>
-    <button onclick="
-    calculation += '7';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('7')">
       7
     </button>
 
-    <button onclick="
-    calculation += '8';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('8')">
       8
     </button>
 
-    <button onclick="
-    calculation += '9';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('9')">
       9
     </button>
 
-    <button onclick="
-    calculation += ' * ';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc(' * ')">
       *
     </button>
   </p>
 
 
   <p>
-    <button onclick="
-    calculation+= '0';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('0')">
       0
     </button>
 
-    <button onclick="
-    calculation+= '.';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('.')">
       .
     </button>
 
@@ -118,10 +79,7 @@
     =
     </button>
 
-    <button onclick="
-    calculation+= ' / ';
-    console.log(calculation);
-    ">
+    <button onclick="addCalc('/')">
       /
     </button>
   </p>
@@ -140,6 +98,11 @@
 
   <script>
     let calculation = '';
+
+    function addCalc(dado) {
+      calculation += dado;
+      console.log(calculation)
+    }
   </script>
 </body>
 </html>

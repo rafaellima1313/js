@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: brown;
+    }
+  </style>
+</head>
+<body>
+  <h1>Joaijd's Lair</h1>
+
+  <div>
+    <h2>Curar</h2>
+
+    <button onclick="configVida(10)">
+      +10
+    </button>
+
+    <button onclick="configVida(25)">
+      +25
+    </button>
+  </div>
+
+  <div>
+    <h2>Danos</h2>
+
+    <h3>Dano</h3>
+
+    <button onclick="configVida(-10)">
+      -10
+    </button>
+
+    <button onclick="configVida(-20)">
+      -20
+    </button>
+
+    <h3>Dano Crítico</h3>
+
+    <button onclick="configVida(-20)">
+      -10 crítico
+    </button>
+
+    <button onclick="configVida(-40);
+    
+    ">
+      -20 crítico
+    </button>
+  </div>
+
+  <div>
+    <h2>Configurações</h2>
+
+    <button onclick="verVida()">
+      Mostrar Vida
+    </button>
+
+    <button onclick="resetVida()">
+      Resetar vida para 100
+    </button>
+  </div>
+
+  <script>
+    let vida = 80;
+
+    function configVida(valorVida) {
+      mainVida = vida + valorVida;
+
+      if (mainVida > 100) {
+        vida = 100;
+        alert(`SUA VIDA ESTA NO MAXIMO\nVIDA TOTAL: ${vida}`);
+        return
+      }
+
+      if (mainVida < 0) {
+        vida = 0;
+        alert(`VOCÊ ESTA SEM VIDA\nVIDA TOTAL: ${vida}`);
+        return
+      }
+
+      vida = mainVida;
+
+      alert(`TOTAL VIDA: ${vida}`);
+    }
+
+    function resetVida() {
+      vida = 100;
+      alert('VIDA RESETADA!')
+    }
+
+    function verVida() {
+      alert(`Sua vida atual é ${vida}.`)
+    }
+  </script>
+</body>
+</html>

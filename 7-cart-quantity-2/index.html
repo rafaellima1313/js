@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>
+    Cart Quantity
+  </h1>
+
+  <button onclick="
+  console.log(`Cart quantity: ${cartValue}`);
+  ">
+    Show Quantity
+  </button>
+
+  <button onclick="updateCartQuantity(1)">
+    Add to Cart
+  </button>
+
+  <button onclick="updateCartQuantity(2)">
+    +2
+  </button>
+
+  <button onclick="updateCartQuantity(3);">
+    +3
+  </button>
+
+  <button onclick="updateCartQuantity(5)">
+    +5
+  </button>
+
+  <button onclick="updateCartQuantity(6)">
+    +6
+  </button>
+
+  <button onclick="updateCartQuantity(-1)">
+    Remove from cart
+  </button>
+
+  <button onclick="updateCartQuantity(-2)">
+    -2
+  </button>
+
+  <button onclick="updateCartQuantity(-3)">
+    -3
+  </button>
+
+  <button onclick="resetCart()">
+    Reset Cart
+  </button> 
+
+ 
+
+  <script>
+    let cartValue = 0;
+
+    function updateCartQuantity(quantity) {
+      let totalItems = cartValue + quantity;
+
+      if (totalItems >= 10) {
+        cartValue = 10;
+        alert(`Cart quantity is full \nCart quantity ${cartValue}.`);
+        return;
+      }
+
+      if (totalItems <= 0) {
+        cartValue = 0;
+        alert(`Not enough items \nCart Quantity ${cartValue}.`);
+        return;
+      }
+
+      cartValue = totalItems;
+       
+  
+      console.log(`Cart quantity: ${cartValue}`);
+    }
+
+    function resetCart() {
+      cartValue = 0;
+      console.log(`Cart is now empty! \nCart quantity: ${cartValue}`);
+    }
+
+    
+  </script>
+
+
+</body>
+</html>
