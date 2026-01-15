@@ -8,14 +8,14 @@
 <body>
   <div>
     <h2>Curar Vida</h2>
-    <button onclick="ganharVida(10)">+10</button>
-    <button onclick="ganharVida(25)">+25</button>
+    <button onclick="curarVida(10)">+10</button>
+    <button onclick="curarVida(25)">+25</button>
   </div>
 
   <div>
     <h2>Ganhar Escudo</h2>
-    <button onclick="ganharEscudo(10)">+10</button>
-    <button onclick="ganharEscudo(25)">+25</button>
+    <button onclick="curarEscudo(10)">+10</button>
+    <button onclick="curarEscudo(25)">+25</button>
   </div>
 
   <div>
@@ -27,62 +27,67 @@
 
   <div>
     <h2>Configurações</h2>
-    <button onclick="">Status</button>
-    <button onclick="">Resetar</button>
+    <button>Resetar</button> 
+    <button>Status</button>
   </div>
 
   <script>
-    let vida = 100;
+    let vida = 40;
     let escudo = 50;
 
-    function ganharVida(valor) {
-      let mainVida = vida + valor;
+    function curarVida(valor) {
+      let controleVida = vida + valor;
 
-      if (mainVida > 100) {
+      if(controleVida > 100) {
         vida = 100;
-        alert(`SUA VIDA ESTA NO MAXIMO, VIDA: ${vida}`)
+        alert('VOCÊ ESTA COM A VIDA CHEIA');
         return;
       }
 
-      vida = mainVida;
-      alert(`SUA VIDA É: ${vida}`)
+      vida = controleVida;
+
+      alert(`VOCÊ POSSUI ${vida} DE VIDA!`);
     }
 
-    function ganharEscudo(valor) {
-      let mainEscudo = escudo + valor;
+    function curarEscudo(valor) {
+      let controleEscudo =  escudo + valor;
 
-      if (mainEscudo > 50) {
+      if (controleEscudo > 50) {
         escudo = 50;
-        alert(`SEU ESCUDO ESTA NO MAXIMO, ESCUDO: ${escudo}`);
+        alert('ESCUDO ESTA NO MAXIMO!');
         return;
       }
 
-      escudo = mainEscudo;
+      escudo = controleEscudo;
 
-      alert(`SEU ESCUDO É: ${escudo}`);
+      alert(`VOCÊ POSSUI ${escudo} DE ESCUDO!`);
     }
 
     function dano(valor) {
-     let mainDano = valor;
+      danoRecebido = valor;
 
-     if (escudo > 0) {
-      escudo -= mainDano;
-     }
+      if (escudo > 0) {
+        escudo = escudo - danoRecebido;
+      }
 
-     if (escudo < 0) {
-      mainDano = -escudo;
-      escudo = 0;
-      vida -= mainDano;
-     } else {
-      vida -= mainDano;
-     }
+      if (escudo < 0) {
+        danoRecebido = -escudo;
+        escudo = 0;
+      } else {
+        danoRecebido = 0;
+      }
 
-     if (vida < 0) {
-      vida = 0;
-      alert('VOCÊ ESTA SEM VIDA')
-     }
+      if (danoRecebido > 0) {
+        vida = vida - danoRecebido;
+      }
 
-     alert(`VIDA: ${vida}\nESCUDO: ${escudo}`)
+      if (vida < 0) {
+        vida = 0;
+        alert('Sem vida');
+      }
+
+      alert(`Vida: ${vida}\nEscudo: ${escudo}`)
+
     }
     
   </script>
