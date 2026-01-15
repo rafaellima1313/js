@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: darkolivegreen;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  background-image: url("https://img.freepik.com/free-vector/knight-seamless-pattern_1284-34734.jpg?semt=ais_hybrid&w=740&q=80");
+}
+
+div {
+  width: 330px;
+  height: 390px;
+  color: white;
+  background-color: rgb(4, 21, 10);
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 20px;
+  background-image: url("");
+  background-size: cover;
+  background-position: center center;
+}
+
+h2 {
+  padding: 40px;
+}
+
+button {
+  padding: 40px;
+  font-size: large;
+  margin: 10px;
+}
+
+
