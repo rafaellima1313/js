@@ -1,64 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Vida e Escudo</title>
+  <style>
+    body {
+      background-color: #222;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    h2 {
+      margin-top: 25px;
+    }
+  </style>
 </head>
 <body>
+
+  <h1>Joaijd's Lair</h1>
+
   <div>
     <h2>Curar Vida</h2>
-
-    <button>
-      +10
-    </button>
-
-    <button>
-      +25
-    </button>
+    <button onclick="curarVida(10)">+10</button>
+    <button onclick="curarVida(25)">+25</button>
   </div>
 
   <div>
     <h2>Ganhar Escudo</h2>
-
-    <button>
-      +10
-    </button>
-
-    <button>
-      +25
-    </button>
+    <button onclick="ganharEscudo(10)">+10</button>
+    <button onclick="ganharEscudo(25)">+25</button>
   </div>
 
   <div>
     <h2>Dano</h2>
-
-    <button>
-      -10
-    </button>
-
-    <button>
-      -20
-    </button>
-
-    <button>
-      -40
-    </button>
+    <button onclick="aplicarDano(10)">-10</button>
+    <button onclick="aplicarDano(20)">-20</button>
+    <button onclick="aplicarDano(40)">-40</button>
   </div>
 
   <div>
-    <h2>
-      Configurações
-    </h2>
-
-    <button>
-      Status
-    </button>
-
-    <button>
-      Resetar
-    </button>
+    <h2>Configurações</h2>
+    <button onclick="mostrarStatus()">Status</button>
+    <button onclick="resetar()">Resetar</button>
   </div>
+
+  <script>
+    let vida = 100;
+    let escudo = 50;
+
+    function curarVida(valor) {
+      let novaVida = vida + valor;
+
+      if (novaVida > 100) {
+        vida = 100;
+      } else {
+        vida = novaVida;
+      }
+
+      alert(`Vida atual: ${vida}`);
+    }
+
+    function ganharEscudo(valor) {
+      let novoEscudo = escudo + valor;
+
+      if (novoEscudo > 50) {
+        escudo = 50;
+      } else {
+        escudo = novoEscudo;
+      }
+
+      alert(`Escudo atual: ${escudo}`);
+    }
+
+    function aplicarDano(dano) {
+      let danoRestante = dano;
+
+      if (escudo > 0) {
+        if (escudo >= danoRestante) {
+          escudo = escudo - danoRestante;
+          danoRestante = 0;
+        } else {
+          danoRestante = danoRestante - escudo;
+          escudo = 0;
+        }
+      }
+
+      vida = vida - danoRestante;
+
+      if (vida < 0) {
+        vida = 0;
+      }
+
+      alert(`Vida: ${vida}\nEscudo: ${escudo}`);
+    }
+
+    function mostrarStatus() {
+      alert(`Vida: ${vida}\nEscudo: ${escudo}`);
+    }
+
+    function resetar() {
+      vida = 100;
+      escudo = 50;
+      alert("Vida e escudo resetados!");
+    }
+  </script>
+
 </body>
 </html>
