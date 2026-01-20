@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vida e Escudo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+    <h2>Curar Vida</h2>
+    <button onclick="curarVida(10)">+10</button>
+    <button onclick="curarVida(25)">+25</button>
+  </div>
+
+  <div>
+    <h2>Ganhar Escudo</h2>
+    <button onclick="curarEscudo(10)">+10</button>
+    <button onclick="curarEscudo(25)">+25</button>
+  </div>
+
+  <div>
+    <h2>Dano</h2>
+    <button onclick="dano(10)">-10</button>
+    <button onclick="dano(20)">-20</button>
+    <button onclick="dano(40)">-40</button>
+  </div>
+
+  <div>
+    <h2>Configurações</h2>
+    <button onclick="resetar()">Resetar</button> 
+    <button onclick="status()">Status</button>
+  </div>
+
+  <script>
+   let vida = 80;
+   let escudo = 30;
+
+   function curarVida(valor) {
+    let dadoVida = vida + valor;
+
+    if (dadoVida > 100) {
+      vida = 100;
+      alert(`SUA VIDA ESTÁ NO MÁXIMO\nVIDA: ${vida}`)
+      return;
+    }
+
+    vida = dadoVida;
+
+    alert(`VIDA: ${vida}`);
+   }
+
+   function curarEscudo(valor) {
+     let dadoEscudo = escudo + valor;
+
+    if (dadoEscudo > 50) {
+      escudo = 50;
+      alert(`SEU ESCUDO ESTÁ NO MÁXIMO\nESCUDO: ${escudo}`)
+      return;
+    }
+
+    escudo = dadoEscudo;
+
+    alert(`ESCUDO: ${escudo}`);
+   }
+
+
+   function dano(valor) {
+    let dadoDano = valor;
+
+    if (escudo > 0) {
+      escudo -= dadoDano;
+
+      if (escudo < 0) {
+        dadoDano -= -escudo;
+        escudo = 0;
+      } else {
+        dadoDano = 0;
+      }
+    }
+
+    if (dadoDano > 0) {
+      vida -= dadoDano;
+    }
+
+    if (vida < 0) {
+       vida = 0;
+       alert('SEM VIDA!')
+       return;
+      }
+      
+      alert(`VIDA: ${vida}\nESCUDO: ${escudo}`);
+   }
+
+   function resetar() {
+    vida = 80;
+    escudo = 30;
+    alert('ESCUDO E VIDA RESETADOS COM SUCESSO!');
+   }
+
+   function status() {
+    alert(`VIDA: ${vida}\nESCUDO: ${escudo}`);
+   }
+
+  </script>
+
+</body>
+</html>
