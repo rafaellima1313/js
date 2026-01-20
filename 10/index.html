@@ -64,11 +64,10 @@
     }
 
     function dano(valor) {
-      danoRecebido = valor;
+      let danoRecebido = valor;
 
       if (escudo > 0) {
         escudo = escudo - danoRecebido;
-      }
 
       if (escudo < 0) {
         danoRecebido = -escudo;
@@ -76,6 +75,7 @@
       } else {
         danoRecebido = 0;
       }
+      } 
 
       if (danoRecebido > 0) {
         vida = vida - danoRecebido;
