@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despesas Variáveis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Despesas</h1>
+  <div class="geral">
+    <h2>Despesas variáveis</h2>
+    <button onclick="despesasVariaveis(300)">Supermercado: R$300</button>
+    <button onclick="despesasVariaveis(450)">Contas R$450</button>
+    <button onclick="despesasVariaveis(200)">Cerveja R$200</button>
+    <button onclick="despesasVariaveis(100)">Academia R$100</button>
+  </div>
+
+  <div class="geral">
+    <h2>Pagar despesas variáveis</h2>
+    <button onclick="despesasPagas(300)">Supermercado: R$300</button>
+    <button onclick="despesasPagas(450)">Contas R$450</button>
+    <button onclick="despesasPagas(200)">Cerveja R$200</button>
+    <button onclick="despesasPagas(100)">Academia R$100</button>
+  </div>
+
+  <div class="geral">
+    <h2>Informações</h2>
+    <button>Saldo do mês</button>
+    <button>Status</button>
+  </div>
+
+  <script>
+    let saldo = 2000;
+    let despesas = 0;
+    let pagarDespesas =0;
+
+    function despesasVariaveis(valor){
+      let valorGasto = despesas + valor;
+
+      if (valor > saldo) {
+        alert(`Saldo Insuficiente!\nSaldo Disponível: ${saldo}`);
+        return;
+      }
+
+      despesas = valorGasto;
+      saldo -= valor;
+
+      alert(`Você gastou: ${despesas}\nSaldo: ${saldo}`);
+    }
+
+    function despesasPagas(valor) {
+      let valorPago = pagarDespesas + valor;
+      saldo += valorPago;
+      pagarDespesas -= valor;
+
+      alert(`SALDO: ${saldo}`)
+    }
+    
+
+    
+  </script>
+</body>
+</html>

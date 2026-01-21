@@ -19,6 +19,14 @@
   </div>
 
   <div>
+    <h2>Stamina</h2>
+    <button onclick="usarStamina(15)">Usar(15)</button>
+    <button onclick="usarStamina(30)">Usar(30)</button>
+    <button onclick="recuperarStamina(20)">Recuperar(20)</button>
+    <button onclick="recuperarStamina(50)">Recuperar(50)</button>
+  </div>
+
+  <div>
     <h2>Dano</h2>
     <button onclick="dano(10)">-10</button>
     <button onclick="dano(20)">-20</button>
@@ -34,6 +42,7 @@
   <script>
    let vida = 80;
    let escudo = 30;
+   let stamina = 50;
 
    function curarVida(valor) {
     let dadoVida = vida + valor;
@@ -63,42 +72,88 @@
     alert(`ESCUDO: ${escudo}`);
    }
 
+   function usarStamina(valor) {
+    let usarStamina = stamina - valor;
+    
+    if (usarStamina < 0) {
+      stamina = 0;
+      alert(`VOCÊ ESTA SEM STAMINA\nSTAMINA: ${stamina}!`);
+      return; 
+      }
 
-   function dano(valor) {
+      stamina = usarStamina;
+
+      alert(`STAMINA ${stamina}`);
+    }
+
+    function recuperarStamina(valor) {
+      let dadoStamina = stamina + valor;
+      if (dadoStamina > 100) {
+        stamina = 100;
+        alert(`SUA STAMINA ESTÁ NO MÀXIMO!\nSTAMINA: ${stamina}`);
+        return;
+      }
+
+      stamina = dadoStamina;
+
+      alert(`STAMINA: ${stamina}`);
+    }
+
+    function dano(valor) {
     let dadoDano = valor;
+
+    if (stamina > 0) {
+      stamina -= dadoDano;
+      
+      if (stamina < 0) {
+      dadoDano -= (-stamina);
+      stamina = 0;
+    } else {
+      dadoDano = 0;
+    }
+    }
 
     if (escudo > 0) {
       escudo -= dadoDano;
-
+  
       if (escudo < 0) {
-        dadoDano -= -escudo;
-        escudo = 0;
-      } else {
-        dadoDano = 0;
-      }
+      dadoDano -= -escudo;
+      escudo = 0;
+    } else {
+      dadoDano = 0;
     }
-
-    if (dadoDano > 0) {
-      vida -= dadoDano;
     }
-
-    if (vida < 0) {
-       vida = 0;
-       alert('SEM VIDA!')
-       return;
-      }
-      
-      alert(`VIDA: ${vida}\nESCUDO: ${escudo}`);
+   
+   if (dadoDano > 0) {
+    vida -= dadoDano;
    }
+
+   if (vida < 0) {
+    vida = 0;
+    alert('VOCÊ ESTÁ SEM VIDA!')
+    return;
+   }
+
+   alert (`VIDA: ${vida}\nESCUDO: ${escudo}\nSTAMINA: ${stamina}`)
+  }
+
 
    function resetar() {
     vida = 80;
     escudo = 30;
-    alert('ESCUDO E VIDA RESETADOS COM SUCESSO!');
-   }
+    stamina = 50;
+    alert('ESCUDO, VIDA E STAMINA RESETADOS COM SUCESSO!');
+  }
 
    function status() {
-    alert(`VIDA: ${vida}\nESCUDO: ${escudo}`);
+    if (vida === 0) {
+      alert("VOCÊ ESTÁ MORTO!")
+      return;
+    }
+    
+    alert(`VIDA: ${vida}\nESCUDO: ${escudo}\nSTAMINA: ${stamina}`);
+
+    
    }
 
   </script>
