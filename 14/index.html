@@ -14,15 +14,26 @@
   <script>
     const product = {
       name: 'shirt',
-      price: 19.90,
-      ['color']: 'Blue'
-    };
+      price: 99,
+      ratings: {
+        stars: 4.5,
+        count: 10
+      },
+      message() {
+        console.log('Hello There!');
+      }
+    }
 
     console.log(product);
 
-    console.log(product['color']);
+    const teste = JSON.stringify(product);
+
+    console.log(teste);
+
+    console.log(JSON.parse(teste));
   </script>
 
-  4:42:28
+  4.53.30
+
 </body>
 </html>
