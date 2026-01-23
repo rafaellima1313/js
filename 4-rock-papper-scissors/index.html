@@ -30,22 +30,33 @@
     Scissors
   </button>
 
+  <button onclick="resetScore()">
+    Reset Score
+  </button>
+
   <script>
-    
+    const placar = {
+      wins: 0,
+      loses: 0,
+      draws: 0
+    };
 
     function playGame(playerMove) {
       let result = '';
       const computerMove = pickComputerMove();
 
       if (computerMove === playerMove) {
-       result = 'Drawn';
+       result = 'Draw';
+       placar.draws++
       } else if ((computerMove === 'Rock' && playerMove === 'Scissors') || (computerMove === 'Paper' && playerMove === 'Rock') || (computerMove === 'Scissors' && playerMove === 'Paper')) {
-        result = 'You Lost';
+        result = 'You Lose';
+        placar.loses++;
       } else {
         result = 'You Win';
+        placar.wins++;
       }
 
-      alert(`You choose ${playerMove}, computer choose ${computerMove}.\n${result}`);
+      alert(`You choose ${playerMove}, computer choose ${computerMove}.\n${result}\nWin: ${placar.wins}, Lose: ${placar.loses}, Draw: ${placar.draws}`);
 
       }
 
@@ -65,7 +76,15 @@
       return computerMove;
       }
 
-      4.25.52
+      function resetScore() {
+        placar.win = 0;
+        placar.lose = 0;
+        placar.draw = 0;
+
+        alert('Placar Zerado!')
+      }
+
+
   </script>
 </body>
 </html>
