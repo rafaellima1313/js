@@ -35,11 +35,15 @@
   </button>
 
   <script>
-    const placar = {
+    const placar = JSON.parse(localStorage.getItem('score')) || {
       wins: 0,
       loses: 0,
       draws: 0
     };
+
+    localStorage.setItem('score', JSON.stringify(placar));
+
+
 
     function playGame(playerMove) {
       let result = '';
@@ -55,6 +59,8 @@
         result = 'You Win';
         placar.wins++;
       }
+
+      localStorage.setItem('score', JSON.stringify(placar));
 
       alert(`You choose ${playerMove}, computer choose ${computerMove}.\n${result}\nWin: ${placar.wins}, Lose: ${placar.loses}, Draw: ${placar.draws}`);
 
@@ -77,12 +83,16 @@
       }
 
       function resetScore() {
-        placar.win = 0;
-        placar.lose = 0;
-        placar.draw = 0;
+        placar.wins = 0;
+        placar.loses = 0;
+        placar.draws = 0;
+
+        localStorage.removeItem('score');
 
         alert('Placar Zerado!')
       }
+
+      5;18;21
 
 
   </script>

@@ -12,25 +12,26 @@
 </head>
 <body>
   <script>
-    const product = {
-      name: 'shirt',
-      price: 99,
-      ratings: {
-        stars: 4.5,
-        count: 10
-      },
-      message() {
-        console.log('Hello There!');
+    const player = {
+      name: 'Karfaz',
+      vocation: 'Knight',
+      level: 65,
+      skills: {
+        axe: 81,
+        sword: 70,
+        club: 70
       }
-    }
+    };
 
-    console.log(product);
+    console.log(typeof player);
 
-    const teste = JSON.stringify(product);
+    const dataPlayer = (JSON.stringify(player));
 
-    console.log(teste);
+    console.log(typeof dataPlayer);
 
-    console.log(JSON.parse(teste));
+    console.log(typeof JSON.parse(dataPlayer));
+
+
   </script>
 
   4.53.30
