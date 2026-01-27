@@ -74,6 +74,7 @@
 
     <button onclick="
     calculation = eval(calculation);
+    localStorage.setItem('result', calculation);
     console.log(calculation);
     ">
     =
@@ -87,6 +88,8 @@
   <p>
     <button onclick="
     calculation = '';
+    localStorage.removeItem('calculation');
+    localStorage.removeItem('result');
     console.log('cleared!')
     ">
       clear
@@ -97,12 +100,20 @@
 
 
   <script>
-    let calculation = '';
+    let calculation = localStorage.getItem('calculation') || '';
+
+    let result = localStorage.getItem('result');
+
+    console.log(calculation, result);
 
     function addCalc(dado) {
       calculation += dado;
       console.log(calculation)
+
+      localStorage.setItem('calculation', calculation);
     }
   </script>
 </body>
 </html>
+
+5.25.38
