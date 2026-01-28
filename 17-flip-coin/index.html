@@ -19,7 +19,7 @@
     tails
   </button>
 
-  <button>
+  <button onclick="resetScore()">
     clear score
   </button>
 
@@ -48,8 +48,18 @@
       localStorage.setItem('result', JSON.stringify(score));
 
       console.log(score);
-      
+
     }
+
+     function resetScore() {
+        score = {
+        win: 0,
+        lose: 0
+        };
+
+        localStorage.setItem('result', JSON.stringify(score));
+        console.log('score cleared')
+      }
   </script> 
 </body>
 </html>
