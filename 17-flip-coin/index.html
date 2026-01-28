@@ -24,42 +24,44 @@
   </button>
 
   <script>
-    let score = JSON.parse(localStorage.getItem('result')) || {
+    let result = JSON.parse(localStorage.getItem('result')) || {
       win: 0,
       lose: 0
     };
 
-
     function computerMove() {
-      let randomNumber = Math.random();
-      return randomNumber < 1/2 ? 'tails' : 'heads';
+      let randomMove = Math.random();
+      return randomMove < 1/2 ? 'heads' : 'tails';
     }
 
-    function playGame(guess) {
+    function playGame(playerMove) {
       let coinSide = computerMove();
-      if (guess === coinSide) {
-        score.win++
-        console.log(`Coin Side: ${coinSide}\nGANHOU!!`)
+      if (playerMove === coinSide) {
+        result.win++;
+        console.log(`YOU CHOSE ${playerMove}, THE COIN FLIPPED ${coinSide}.\nYOU WIN!!`);
       } else {
-        score.lose++
-        console.log(`Coin Side: ${coinSide}\nPERDEU!!`)
+        result.lose++;
+        console.log(`YOU CHOSE ${playerMove}, THE COIN FLIPPED ${coinSide}.\nYOU LOSE!!`);
       }
 
-      localStorage.setItem('result', JSON.stringify(score));
+      localStorage.setItem('result', JSON.stringify(result));
 
-      console.log(score);
-
+      console.log(result);
     }
 
-     function resetScore() {
-        score = {
+    function resetScore() {
+      result = {
         win: 0,
-        lose: 0
-        };
+        lose:0
+      };
 
-        localStorage.setItem('result', JSON.stringify(score));
-        console.log('score cleared')
-      }
+      localStorage.setItem('result', JSON.stringify(result));
+
+      console.log('Cleared!!')
+    }
+    
+
+    
   </script> 
 </body>
 </html>
