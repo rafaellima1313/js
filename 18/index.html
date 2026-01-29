@@ -6,10 +6,59 @@
   <title>Aprendendo Dom</title>
 </head>
 <body>
-  <h1>hello</h1>
+  <h1>DOM - Document Object Model</h1>
+
+  <div>
+    <p>
+      Youtube Subscribe Button
+    </p>
+
+    <button class="js-sub" onclick="clickButton()">Subscribe</button>
+  </div>
+
+  <div>
+    <p>
+      Amazon Shipping Calculator
+    </p>
+
+    <p>
+      Orders under $40 = +$10 shipping.
+    </p>
+
+    <p>
+      Orders over $40 = FREE shipping.
+    </p>
+
+    <input type="number" name="number" id="js-input">
+    <button onclick="calculateButton()">Calculate</button>
+
+    <p class="js-output"></p>
+  </div>
+
+
   <script>
-    console.log(document.body.innerHTML);
-    document.body.innerHTML = '<button>SUBMIT</button>'
+    function calculateButton() {
+      let inputElem = Number(document.body.querySelector('#js-input').value);
+
+      let outputElem = document.body.querySelector('.js-output');
+
+      if (inputElem < 40) {
+        outputElem.innerHTML = `$${inputElem + 10}`
+      } else {
+        outputElem.innerHTML = `$${inputElem}`;
+      }
+    }
+
+
+    function clickButton() {
+      let buttonElem = document.body.querySelector('.js-sub');
+
+      if (buttonElem.innerText === 'Subscribe') {
+        buttonElem.innerHTML = 'Subscribed';
+      } else {
+        buttonElem.innerHTML = 'Subscribe';
+      }
+    }
   </script>
 </body>
 </html>
