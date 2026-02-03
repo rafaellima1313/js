@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aprendendo Dom</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>DOM - Document Object Model</h1>
@@ -13,7 +14,7 @@
       Youtube Subscribe Button
     </p>
 
-    <button class="js-sub" onclick="clickButton()">Subscribe</button>
+    <button class="js-sub subscribe-button" onclick="clickButton()">Subscribe</button>
   </div>
 
   <div>
@@ -70,8 +71,10 @@
 
       if (buttonElem.innerText === 'Subscribe') {
         buttonElem.innerHTML = 'Subscribed';
+        buttonElem.classList.add('is-subscribed');
       } else {
         buttonElem.innerHTML = 'Subscribe';
+        buttonElem.classList.remove('is-subscribed');
       }
     }
   </script>
