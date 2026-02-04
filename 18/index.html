@@ -54,6 +54,15 @@
 
       const outputElem = document.body.querySelector('.js-output');
 
+      if (inputValue <= 0 || isNaN(inputValue)) {
+        outputElem.classList.add('outputData');
+
+        outputElem.innerText = 'Digite um valor valido!';
+        return;
+      } else {
+        outputElem.classList.remove('outputData');
+      }
+
       let cents = Math.round(inputValue * 100)
 
       if (cents < 4000) {

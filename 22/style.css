@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+  margin: 10px;
+}
+
+.add-btn {
+  background-color: rgb(234, 234, 53);
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 36px;
+}
+
+.request-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 14px;
+}
+
+.schedule-btn {
+  background-color: rgb(245, 223, 223);
+  color: black;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+.is-toggled {
+  background-color: blue;
+}

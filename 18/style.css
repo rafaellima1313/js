@@ -52,6 +52,10 @@ p {
   cursor: pointer;
 }
 
+.outputData {
+  color: red;
+}
+
 
 
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div>
+  <button class="js-request-btn request-btn" onclick="isToggled(this)">
+    Request now
+  </button>
+
+  <button class="js-add-btn request-btn" onclick="isToggled(this)">
+    Add Number
+  </button>
+
+  <button class="js-next-btn request-btn" onclick="isToggled(this)">
+    Next Option
+  </button>
+ </div>
+
+
+
+  <script>
+    const requestElem = document.querySelector('.js-request-btn');
+
+    const addElem = document.querySelector('.js-add-btn');
+
+    const nextElem = document.querySelector('.js-next-btn');
+
+    function isToggled(button) {
+      if (button === requestElem) {
+        requestElem.classList.add('is-toggled');
+        addElem.classList.remove('is-toggled');
+        nextElem.classList.remove('is-toggled');
+      } else if (button === addElem) {
+        requestElem.classList.remove('is-toggled');
+        addElem.classList.add('is-toggled');
+        nextElem.classList.remove('is-toggled');
+      } else {
+        requestElem.classList.remove('is-toggled');
+        addElem.classList.remove('is-toggled');
+        nextElem.classList.add('is-toggled');
+      }
+    }
+
+    
+  </script>
+ </div>
+</body>
+</html>
