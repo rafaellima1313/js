@@ -7,17 +7,12 @@
 }
 
 body {
-  background-color: lightblue;
+  background-color: rgb(45, 127, 150);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 div {
-  width: 500px;
-  display: block;
-  margin: 30px 0 30px 5px;
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 p {
@@ -32,10 +27,29 @@ p {
   border-radius: 20px;
   font-weight: bolder;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .is-subscribed {
   background-color: rgb(94, 94, 247);
+}
+
+.input-data {
+  margin-left: 10px;
+  padding: 7px;
+}
+
+.input-data::placeholder {
+  color: black;
+}
+
+.calculate-btn {
+  padding: 10px;
+  color: white;
+  background-color: rgb(1, 117, 1);
+  border: none;
+  font-size: 0.7em;
+  cursor: pointer;
 }
 
 
