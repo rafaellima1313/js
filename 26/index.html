@@ -7,25 +7,19 @@
 </head>
 <body>
   <script>
+    function countPositive(nums) {
+      let result = 0;
 
-    let num = [1, 2, 3, 4];
-
-    let doubleNum = [];
-
-    function addOne() {
-      for (let i = 0; i < num.length; i++) {
-        let newNum = num[i] + 1;
-        doubleNum.push(newNum);
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+          result++
+        }
       }
-
-      return doubleNum;
+      return result;
     }
 
-    console.log(addOne());
-
-
-
-    
+    console.log(countPositive([-1, -2, 2, 3, 3]));
+      
   </script>
 </body>
 </html>

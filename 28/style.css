@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-button {
+  background-color: rgb(16, 185, 16);
+  color: white;
+  border: none;
+  padding: 4px 20px;
+  font-weight: bold;
+}
